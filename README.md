@@ -2,6 +2,6 @@
 
 Внимание, приложение находится в разработке!!!
 
-## Usage
+## Usage DEV
 
-    $ java -jar speed-tracking-0.1.0-standalone.jar [args]
+Для локальной разработки нужно установить [leiningen](https://leiningen.org/), а также доп. инструменты [calva](https://calva.io/).
