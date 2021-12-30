@@ -6,7 +6,8 @@
                  [compojure "1.6.2" :exclusions [ring/ring-codec]]
                  [ring/ring-core "1.9.4"]
                  [ring/ring-devel "1.9.4"]
-                 [ring/ring-jetty-adapter "1.9.4"]]
+                 [ring/ring-jetty-adapter "1.9.4"]
+                 [ring/ring-json "0.5.1"]]
   :min-lein-version "2.0.0"
   :main ^:skip-aot speed-tracking.core
   :target-path "target/%s"
