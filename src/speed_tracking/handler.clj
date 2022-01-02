@@ -10,13 +10,13 @@
   get-brands-id-router
   (route/not-found "Route not found"))
 
-(defn- common-middlewares [handler]
+(defn- wrap-common [handler]
   (-> handler
       wrap-json-response))
 
 (def app-dev (-> #'main-routes
                  wrap-reload
-                 common-middlewares))
+                 wrap-common))
 
 (def app (-> main-routes
-             common-middlewares))
+             wrap-common))

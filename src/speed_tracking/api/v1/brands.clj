@@ -4,8 +4,8 @@
 
 (def get-brands-router
   (GET "/api/v1/brands" []
-    (response {:foo "all"})))
+    (response {:data {:foo "all"}})))
 
 (def get-brands-id-router
   (GET "/api/v1/brands/:id" [id]
-    (response {:foo id})))
+    (response {:data {:foo id}})))
