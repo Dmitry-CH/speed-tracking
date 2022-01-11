@@ -3,7 +3,7 @@
             [compojure.route :as route]
             [ring.middleware.json :refer [wrap-json-response]]
             [ring.middleware.reload :refer [wrap-reload]]
-            [speed-tracking.api.v1.brands :refer [get-brands-router get-brands-id-router]]))
+            [speed-tracking.api.v1.core :refer [get-brands-router get-brands-id-router]]))
 
 (defroutes main-routes
   get-brands-router

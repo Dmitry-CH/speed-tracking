@@ -1,4 +1,4 @@
-(ns speed-tracking.api.v1.brands
+(ns speed-tracking.api.v1.core
   (:require [compojure.core :refer :all]
             [ring.util.response :refer [response]]))
 
