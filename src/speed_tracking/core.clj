@@ -1,6 +1,7 @@
 (ns speed-tracking.core
   (:require [ring.adapter.jetty :refer [run-jetty]]
-            [speed-tracking.handler :refer [app-dev]])
+            [speed-tracking.handler :refer [app-dev]]
+            [speed-tracking.db.core :refer [connect-db disconnect-db]])
   (:gen-class))
 
 (defonce server (atom nil))
@@ -19,4 +20,6 @@
 
 (comment
   (start-server)
-  (stop-server))
+  (stop-server)
+  (connect-db)
+  (disconnect-db))
