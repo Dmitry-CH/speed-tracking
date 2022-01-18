@@ -1,11 +1,11 @@
 (ns speed-tracking.api.v1.core
   (:require [compojure.core :refer :all]
-            [ring.util.response :refer [response]]))
+            [speed-tracking.api.v1.handler :refer :all]))
 
 (def get-brands-router
   (GET "/api/v1/brands" []
-    (response {:data {:foo "all"}})))
+    (handle-a)))
 
 (def get-brands-id-router
   (GET "/api/v1/brands/:id" [id]
-    (response {:data {:foo id}})))
+    (handle-b id)))
