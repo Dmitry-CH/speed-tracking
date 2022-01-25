@@ -5,10 +5,12 @@
   :dependencies [[org.clojure/clojure "1.10.3"]
                  [com.novemberain/monger "3.1.0"]
                  [compojure "1.6.2" :exclusions [ring/ring-codec]]
+                 [environ "1.2.0"]
                  [ring/ring-core "1.9.4"]
                  [ring/ring-devel "1.9.4"]
                  [ring/ring-jetty-adapter "1.9.4"]
                  [ring/ring-json "0.5.1"]]
+  :plugins [[lein-environ "1.2.0"]]
   :main ^:skip-aot speed-tracking.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all

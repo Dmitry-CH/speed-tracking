@@ -18,6 +18,10 @@
     (.stop s)
     (reset! server nil)))
 
+(defn -main [& args]
+  (start-server)
+  (connect-db))
+
 (comment
   (start-server)
   (stop-server)

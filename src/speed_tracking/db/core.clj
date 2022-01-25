@@ -1,5 +1,6 @@
 (ns speed-tracking.db.core
-  (:require [monger.core :as mg]
+  (:require [environ.core :as environ]
+            [monger.core :as mg]
             [monger.collection :as mc]))
 
 (defonce conn (atom nil))
@@ -7,7 +8,8 @@
 
 (defn connect-db []
   (let [c (mg/connect)
-        d (mg/get-db c "speedTracking")]
+        d (mg/get-db c "speedTracking")
+        env (environ/env :db-url)]
     (reset! conn c)
     (reset! db d)))
 
