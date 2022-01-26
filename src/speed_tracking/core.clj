@@ -6,24 +6,24 @@
 
 (defonce server (atom nil))
 
-(def server-opts {:port 8000
-                  :join? false})
-
-(defn start-server []
+(defn start-server [& {:as opts}]
   (reset! server
-          (run-jetty app-dev server-opts)))
+          (run-jetty app-dev opts)))
 
 (defn stop-server []
   (when-some [s @server]
     (.stop s)
     (reset! server nil)))
 
-(defn -main [& args]
-  (start-server)
-  (connect-db))
+(defn -main [& [port]]
+  (let [port (Integer. (or port 8000))
+        join? false]
+    (start-server :port port
+                  :join? join?)
+    #_(connect-db)))
 
 (comment
-  (start-server)
+  (start-server :port 8000 :join? false)
   (stop-server)
   (connect-db)
   (disconnect-db))
