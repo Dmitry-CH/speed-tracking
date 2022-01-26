@@ -16,7 +16,7 @@
     (reset! server nil)))
 
 (defn -main [& [port]]
-  (let [port (Integer. (or port 8000))
+  (let [port (Integer. (or port (System/getenv "PORT") 5000))
         join? false]
     (start-server :port port
                   :join? join?)
