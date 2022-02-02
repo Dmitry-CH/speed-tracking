@@ -7,15 +7,14 @@
 (defonce db (atom nil))
 
 (defn connect-db []
-  (let [c (mg/connect)
-        d (mg/get-db c "speedTracking")
-        env (environ/env :db-url)]
-    (reset! conn c)
-    (reset! db d)))
+  (let [uri (or (environ/env :mongodb-uri) (System/getenv "MONGODB_URI"))
+        {conn* :conn db* :db} (mg/connect-via-uri uri)]
+    (reset! conn conn*)
+    (reset! db db*)))
 
 (defn disconnect-db []
-  (when-some [c @conn]
-    (mg/disconnect c)
+  (when-some [conn* @conn]
+    (mg/disconnect conn*)
     (reset! conn nil)
     (reset! db nil)))
 

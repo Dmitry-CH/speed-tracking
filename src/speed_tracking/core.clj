@@ -20,7 +20,7 @@
         join? false]
     (start-server :port port
                   :join? join?)
-    #_(connect-db)))
+    (connect-db)))
 
 (comment
   (start-server :port 8000 :join? false)
