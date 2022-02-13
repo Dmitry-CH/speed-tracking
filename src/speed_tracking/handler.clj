@@ -5,11 +5,12 @@
             [ring.middleware.keyword-params :refer [wrap-keyword-params]]
             [ring.middleware.params :refer [wrap-params]]
             [ring.middleware.reload :refer [wrap-reload]]
-            [speed-tracking.api.v1.core :refer [get-brands-router get-brands-id-router]]))
+            [speed-tracking.api.v1.core :refer [get-brands-router get-brands-id-router valentines-day]]))
 
 (defroutes app-handler
   get-brands-router
   get-brands-id-router
+  valentines-day
   (ANY "/health" _ "ok")
   (route/not-found "Route not found"))
 
