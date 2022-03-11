@@ -1,5 +1,5 @@
 (ns speed-tracking.api.v1.handler
-  (:require [ring.util.response :refer [content-type response]]
+  (:require [ring.util.response :refer [response]]
             [speed-tracking.db.core :refer :all]))
 
 (defn handle-a []
@@ -7,10 +7,3 @@
 
 (defn handle-b [id]
   (response (get-brand-by-id id)))
-
-(def html "<!DOCTYPE html><html lang=\"ru\"> <head> <meta charset=\"UTF-8\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> <meta name=\"author\", content=\"DC\"> <title>VD</title> <style>html{box-sizing: border-box;}*, *::before, *::after{box-sizing: inherit;}html, body{height: 100%;}body{margin: 0; background-color: #ddd; overflow: hidden;}#card{position: absolute; top: 50%; left: 50%; width: 460px; height: 260px; transform: translate(-50%, -50%); animation: show 2s ease-in-out both; animation-delay: 1s;}#card .heart{float: left; width: 260px; height: 260px;}#card .heart #circle{width: 130px; height: 130px; border-radius: 50%; background-color: #D32F2F;}#card .heart #rec, #card .heart #rec2{width: 130px; height: 130px; margin-top: -60px; background-color: #D32F2F; border-radius: 35% 0 0 0;}#card .heart #half2{transform: rotate(-90deg); margin-top: -330px; margin-left: -200px;}#card #heart2{margin-top: -60px; margin-left: -130px;}#card #heart2 #circle, #card #heart2 #rec{background-color: #fff;}#card #heart2 #half2 #rec{border-bottom: 1px solid #eee; margin-top: -61px;}#card #message{float: left; width: 200px; height: 200px; margin-left: -130px; border-radius: 35% 0 35% 0; overflow: hidden;}#card #message img{object-fit: cover; object-position: center;}#card #heart1{animation: closeLeft 2s ease-in-out forwards;}#card #heart2{animation: closeRight 2s ease-in-out forwards;}#card.run #heart1{animation: openLeft 2s ease-in-out forwards;}#card.run #heart2{animation: openRight 2s ease-in-out forwards;}@keyframes show{from{opacity: 0;}to{opacity: 1;}}@keyframes closeLeft{from{transform: rotateY(0deg);}to{transform: rotateY(180deg);}}@keyframes closeRight{from{transform: rotateX(0deg) rotate(180deg);}to{transform: rotateX(180deg);}}@keyframes openLeft{from{transform: rotateY(180deg);}to{transform: rotateY(0deg);}}@keyframes openRight{0%{transform: rotateX(180deg);}100%{transform: rotateX(0deg) rotateZ(180deg);}}</style> </head> <body> <script>document.addEventListener('click', function(e){const node=document.getElementById('card'); node.classList.toggle('run');}); document.addEventListener('keydown', function(e){if (e.code=='Enter'){const node=document.getElementById('card'); node.classList.toggle('run');}}); </script> <div id=\"card\"> <div id=\"heart1\" class=\"heart\"> <div id=\"half1\"> <div id=\"circle\"></div><div id=\"rec\"></div></div><div id=\"half2\"> <div id=\"circle\"></div><div id=\"rec\"></div></div></div><div id=\"message\"> <img src=\"https://blog.miccostumes.com/wp-content/uploads/zenitsu-and-nezuko.png\" width=\"200px\" height=\"200px\"> </div><div id=\"heart2\" class=\"heart\"> <div id=\"half1\"> <div id=\"circle\"></div><div id=\"rec\"></div></div><div id=\"half2\"> <div id=\"circle\"></div><div id=\"rec\"></div></div></div></div></body></html>")
-
-(defn love []
-  (-> html
-      response
-      (content-type "text/html")))
